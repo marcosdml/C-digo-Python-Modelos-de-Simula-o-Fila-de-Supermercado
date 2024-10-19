@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Sep 22 22:23:27 2024
-
-@author: marcosdelphino
-"""
-
 import pandas as pd
 import random
 from datetime import datetime, timedelta
@@ -142,33 +134,6 @@ df['Faixa Horária'] = df['Horário de Chegada'].apply(definir_faixa_horario)
 print(df)
 
 
-# Salvando o DataFrame atualizado em um arquivo Excel
-df.to_excel('/Users/marcosdelphino/Documents/MBA-Data Sciense/TCC MBA/fila_supermercado_com_faixa_final.xlsx', index=False, engine='openpyxl')
+# Salvando o DataFrame atualizado em um arquivo Excel 
+df.to_excel('/xxxx/xxxxx/xxxxx.xlsx', index=False, engine='openpyxl')
 
-total_clientes = len(df)
-horario_inicio = pd.to_datetime(df['Horário de Chegada'].min(), format='%H:%M:%S')
-horario_fim = pd.to_datetime(df['Horário de Chegada'].max(), format='%H:%M:%S')
-total_tempo_simulado_minutos = (horario_fim - horario_inicio).total_seconds() / 60  # em minutos
-lambda_chegada = total_clientes / total_tempo_simulado_minutos
-
-# Inicializar variáveis para calcular λ e μ
-#total_clientes = len(df)
-#tempo_total_simulado = total_minutos_abertura / 60  # Tempo total de operação em horas
-#soma_tempo_servico = df[['Tempo de Checagem dos Produtos', 'Tempo de Pagamento']].apply(
-   # lambda row: pd.to_timedelta(row['Tempo de Checagem dos Produtos']) + pd.to_timedelta(row['Tempo de Pagamento']),
-   # axis=1
-#)#.dt.total_seconds().sum() / 60  # Soma total do tempo de serviço (em minutos)
-
-# Calcular a taxa de chegada (λ) em clientes por hora
-#lambda_chegada = total_clientes / tempo_total_simulado / 60
-
-# Calcular o tempo médio de atendimento (em minutos)
-#tempo_medio_atendimento = soma_tempo_servico / total_clientes
-
-# Calcular a taxa de atendimento (μ), que é o inverso do tempo médio de atendimento
-#mi_atendimento = 60 / tempo_medio_atendimento / 60  # μ em clientes por hora
-
-# Exibir λ e μ
-print(f"Taxa de chegada (λ): {lambda_chegada:.2f} clientes por minuto")
-#print(f"Taxa de chegada (λ): {lambda_chegada:.2f} clientes por minuto")
-#print(f"Taxa de atendimento (μ): {mi_atendimento:.2f} clientes por minuto")
