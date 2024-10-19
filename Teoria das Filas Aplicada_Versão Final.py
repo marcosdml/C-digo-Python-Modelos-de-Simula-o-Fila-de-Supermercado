@@ -1,17 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Sep 22 22:35:45 2024
-
-@author: marcosdelphino
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Carregar o arquivo Excel
-dfx = pd.read_excel('/Users/marcosdelphino/Documents/MBA-Data Sciense/TCC MBA/fila_supermercado_com_faixa_final.xlsx')
+# Carregar o arquivo Excel gerado através do código de simulação do modelo
+dfx = pd.read_excel('/xxxx/xxxxx/xxxxx.xlsx')
 
 # Converter colunas de tempo para minutos
 dfx['Tempo de Espera na Fila'] = round(pd.to_timedelta(dfx['Tempo de Espera na Fila']).dt.total_seconds() / 60,2)
